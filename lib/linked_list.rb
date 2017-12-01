@@ -13,27 +13,26 @@ class LinkedList
 
 
   def append(surname) # will take multiple paramitors with hashes for surplies
-   current = @head
-    if current.nil?
+   current_position = @head
+    if current_position.nil?
       @head = Node.new(surname)
     else
-      while current.next_node != nil
-      current = current.next_node
+      while current_position.next_node != nil
+      current_position = current_position.next_node
       end
-      current.next_node = Node.new(surname)
+      current_position.next_node = Node.new(surname)
     end
       @count += 1
   end
 
   def to_string
-    current = @head
-    surnames = "The #{current.surname} family"
-    until current.next_node.nil?
-      surnames << ",followed by the #{current.next_node.surname} family"
-      current = current.next_node
+    current_position = @head
+    surnames = "The #{current_position.surname} family"
+    until current_position.next_node.nil?
+      surnames << ",followed by the #{current_position.next_node.surname} family"
+      current_position = current_position.next_node
     end
     surnames
   end
-
 
 end
