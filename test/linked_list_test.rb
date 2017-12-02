@@ -60,6 +60,26 @@ class LinkedListTest < Minitest::Test
     assert_equal "Brooks", list.head.next_node.next_node.next_node.next_node.surname
   end
 
+  def test_can_prepend_family
+    list = LinkedList.new
+
+    list.prepend("Burke")
+
+
+    assert_instance_of Node, list.head
+    assert_equal "Burke", list.head.surname
+  end
+
+  def test_can_append_and_prepend
+    list = LinkedList.new
+
+    list.append("Burke")
+    list.prepend("Hardy")
+
+    assert_instance_of Node, list.head
+    assert_equal "Hardy", list.head.surname
+    assert_equal "Burke", list.head.next_node.surname
+  end
 
 
 end
