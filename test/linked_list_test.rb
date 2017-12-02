@@ -81,5 +81,18 @@ class LinkedListTest < Minitest::Test
     assert_equal "Burke", list.head.next_node.surname
   end
 
+  def test_insert
+    list = LinkedList.new
+
+    list.append("Burke")
+    list.append("Hardy")
+    list.insert(1, "Johnson")
+
+    assert_instance_of Node, list.head
+    assert_equal "Burke", list.head.surname
+    assert_equal "Johnson", list.head.next_node.surname
+    assert_equal "Hardy", list.head.next_node.next_node.surname
+  end
+
 
 end

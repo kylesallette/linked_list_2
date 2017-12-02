@@ -32,6 +32,19 @@ class LinkedList
     @count += 1
   end
 
+  def insert(index, surname)
+    position = @head
+    (index - 1).times do
+      position = position.next_node
+    end
+    node = Node.new(surname)
+    node.next_node = position.next_node
+    position.next_node = node
+    @count += 1
+
+
+  end
+
   def to_string
     position = @head
     surnames = "The #{position.surname} family"
