@@ -58,6 +58,8 @@ class LinkedList
         position = position.next_node
       end
       surnames
+      # make sure it doesnt error if list
+      # if list isnt long enough
   end
 
   def to_string
@@ -68,6 +70,22 @@ class LinkedList
       position = position.next_node
     end
     surnames
+  end
+
+  def pop
+    position = @head
+      until position.next_node.nil?
+        position.next_node
+        position = position.next_node
+          if position.next_node.next_node.nil?
+            names  = position.next_node.surname
+            position.next_node = nil
+          end
+      end
+      # how to still make it where if the list isnt
+      #long enough it will not error
+     @count -= 1
+     "the #{names} family has died of dysentery"
   end
 
 end

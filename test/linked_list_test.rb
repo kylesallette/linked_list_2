@@ -116,5 +116,15 @@ class LinkedListTest < Minitest::Test
     assert_equal "The Hardy family,followed by the Johnson family", list.find(1,1)
   end
 
+  def test_pop_family
+    list = LinkedList.new
+
+    list.append("Burke")
+    list.append("Hardy")
+    list.append("Johnson")
+
+    assert_equal "the Johnson family has died of dysentery", list.pop
+  end
+
 
 end
