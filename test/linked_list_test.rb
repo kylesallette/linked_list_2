@@ -126,5 +126,30 @@ class LinkedListTest < Minitest::Test
     assert_equal "the Johnson family has died of dysentery", list.pop
   end
 
+  def test_includes?
+    list = LinkedList.new
+
+    list.append("Burke")
+    list.append("Hardy")
+    list.append("Johnson")
+
+    assert_equal true, list.includes?("Burke")
+    assert_equal false, list.includes?("Smith")
+    assert_equal true, list.includes?("Johnson")
+    assert_equal false, list.includes?("Robbert")
+  end
+
+  def test_includes_will_be_true_with_lower_case_input
+    list = LinkedList.new
+
+    list.append("Burke")
+    list.append("Hardy")
+    list.append("Johnson")
+
+    assert_equal true, list.includes?("burke")
+    assert_equal true, list.includes?("hardy")
+    assert_equal true, list.includes?("johnson")
+  end
+
 
 end

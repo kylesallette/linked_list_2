@@ -13,6 +13,7 @@ class LinkedList
 
 
   def append(surname) # will take multiple paramitors with hashes for surplies
+    surname = surname.capitalize
     position = @head
       if position.nil?
         @head = Node.new(surname)
@@ -26,6 +27,7 @@ class LinkedList
   end
 
   def prepend(surname)
+    surname = surname.capitalize
     position = @head
     @head = Node.new(surname)
     @head.next_node = position
@@ -33,6 +35,7 @@ class LinkedList
   end
 
   def insert(index, surname)
+    surname = surname.capitalize
     position = @head
     (index - 1).times do
       position = position.next_node
@@ -86,6 +89,22 @@ class LinkedList
       #long enough it will not error
      @count -= 1
      "the #{names} family has died of dysentery"
+  end
+
+  def includes?(input)
+    input = input.capitalize
+    position = @head
+      if position.surname == input
+        return true
+      end
+        until position.next_node == nil
+          position.next_node
+          position = position.next_node
+            if position.surname == input
+              return true
+            end
+         end
+      return false
   end
 
 end
