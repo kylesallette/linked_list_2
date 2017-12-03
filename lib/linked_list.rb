@@ -1,6 +1,7 @@
 require 'pry'
 require_relative 'node'
 
+
 class LinkedList
 
   attr_accessor :head,
@@ -24,6 +25,7 @@ class LinkedList
           position.next_node = Node.new(surname)
       end
       @count += 1
+      surname
   end
 
   def prepend(surname)
@@ -32,6 +34,7 @@ class LinkedList
     @head = Node.new(surname)
     @head.next_node = position
     @count += 1
+    surname
   end
 
   def insert(index, surname)
@@ -44,6 +47,7 @@ class LinkedList
     node.next_node = position.next_node
     position.next_node = node
     @count += 1
+    surname
   end
 
   def find(index, how_many)
@@ -106,5 +110,6 @@ class LinkedList
          end
       return false
   end
+
 
 end
