@@ -94,5 +94,27 @@ class LinkedListTest < Minitest::Test
     assert_equal "Hardy", list.head.next_node.next_node.surname
   end
 
+  def test_find
+    list = LinkedList.new
+
+    list.append("Burke")
+    list.append("Hardy")
+    list.append("Johnson")
+
+    assert_equal "The Burke family", list.find(0,0)
+    assert_equal "The Johnson family", list.find(2,0)
+  end
+
+  def test_find_with_following_families
+    list = LinkedList.new
+
+    list.append("Burke")
+    list.append("Hardy")
+    list.append("Johnson")
+
+    assert_equal "The Burke family,followed by the Hardy family", list.find(0,1)
+    assert_equal "The Hardy family,followed by the Johnson family", list.find(1,1)
+  end
+
 
 end

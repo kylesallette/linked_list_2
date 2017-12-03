@@ -26,9 +26,9 @@ class LinkedList
   end
 
   def prepend(surname)
-    first_node = @head
+    position = @head
     @head = Node.new(surname)
-    @head.next_node = first_node
+    @head.next_node = position
     @count += 1
   end
 
@@ -41,8 +41,23 @@ class LinkedList
     node.next_node = position.next_node
     position.next_node = node
     @count += 1
+  end
 
-
+  def find(index, how_many)
+    position = @head
+    index - 1
+    surnames = "The #{position.surname} family"
+      index.times do
+        position.next_node
+        position = position.next_node
+        surnames = "The #{position.surname} family"
+      end
+      (how_many).times do
+        position.next_node
+        surnames <<  ",followed by the #{position.next_node.surname} family"
+        position = position.next_node
+      end
+      surnames
   end
 
   def to_string
