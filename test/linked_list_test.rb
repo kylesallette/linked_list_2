@@ -145,10 +145,12 @@ class LinkedListTest < Minitest::Test
     list.append("Burke")
     list.append("Hardy")
     list.append("Johnson")
+    list.append("Smith")
 
     assert_equal true, list.includes?("burke")
     assert_equal true, list.includes?("hardy")
     assert_equal true, list.includes?("johnson")
+    assert_equal true, list.includes?("smith")
   end
 
 
